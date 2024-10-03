@@ -1,44 +1,32 @@
-# confecence-bot-backend
+# guess-password-bot
 
 ## Building project
 
-### 1. Download from gitlab
+### 1. Download
 
 ```bash
-git clone git@gitlab.raftds.com:python-shared/fastapi-app-template.git
-
-OR
-
-git clone https://gitlab.raftds.com/python-shared/fastapi-app-template.git
+git clone git@github.com:istrebitel-1/guess-password-bot.git
 ```
 
 ### 2. Install dependencies
 
 ```bash
-cd fastapi-app-template && python3 -m venv .venv && source .venv/bin/activate
+cd guess-password-bot && python3 -m venv .venv && source .venv/bin/activate
 pip install -U pip setuptools
-pip install .[code-quality,testing]
+pip install .[code-quality]
 ```
 
 ### 3. Start the app
 
 > Launch from project root folder
 
-Fill env from [example file](./backend/config/environment/env.sh.template)
-Default values provided in  [settings file](./backend/settings.py)
+Fill env from [example file](.env.template)
+Default values provided in  [settings file](./src/settings.py)
 
 Run
 
-Up postgres from `docker-compose up -d` or provide `.env` file with your credentials
-
 ```bash
-uvicorn main:app
-```
-
-or with hot reload
-
-```bash
-uvicorn main:app --reload
+python main.py
 ```
 
 ### Code quality
@@ -56,11 +44,3 @@ Install dependencies: `pip install .[code-quality]`
 ```bash
 ./code_quality_check.sh
 ```
-
-## Release process
-
-Prerequisites: you should have maintainer or owner access to the repository
-
-1. Create a new branch named release-*.*.* from main
-2. Go to CI/CD page and click "Run pipeline" button
-3. Wait for the pipeline to finish
